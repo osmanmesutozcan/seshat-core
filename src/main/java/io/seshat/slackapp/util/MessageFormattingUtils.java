@@ -21,7 +21,7 @@ public class MessageFormattingUtils {
     if (message.getUsers().size() > 0) {
       payload.append("to ");
       for (String user: message.getUsers()) {
-        payload.append(String.format("<%s> ", user));
+        payload.append(String.format("%s ", user));
       }
     }
 
