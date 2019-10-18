@@ -6,7 +6,7 @@ services:
     ports:
       - '5432:5432'
     environment:
-      POSTGRESQL_URL: jdbc:postgresql://localhost:5432/seshat-prod
+      POSTGRES_URL: jdbc:postgresql://localhost:5432/seshat-prod
     volumes:
       - seshat_dbdata:/var/lib/postgresql/data
 
