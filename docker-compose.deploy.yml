@@ -3,7 +3,8 @@ services:
   postgres:
     image: bitnami/postgresql:latest
     restart: always
-    network_mode: host
+    ports:
+      - '5432:5432'
     environment:
       POSTGRESQL_USERNAME: seshat
       POSTGRESQL_PASSWORD: seshat
@@ -16,7 +17,8 @@ services:
       context: .
       args:
         POSTGRES_URL: ${POSTGRES_URL}
-    network_mode: host
+    ports:
+      - '8080:8080'
     environment:
       POSTGRES_URL: ${POSTGRES_URL}
 
