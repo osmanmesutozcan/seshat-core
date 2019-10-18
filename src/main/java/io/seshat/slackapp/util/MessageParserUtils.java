@@ -32,7 +32,8 @@ public class MessageParserUtils {
 
   static private class SlackUtils {
     static Pattern TAGS_RGX = Pattern.compile("#(\\w+)");
-    static Pattern USERS_RGX = Pattern.compile("<@(.*)\\|(.*)>");
+    static Pattern USERS_RGX = Pattern.compile("<(.*)>");
+//    static Pattern USERS_RGX = Pattern.compile("<@(.*)\\|(.*)>");
   }
 
   @Data

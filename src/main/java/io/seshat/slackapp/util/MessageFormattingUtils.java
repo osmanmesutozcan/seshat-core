@@ -7,6 +7,15 @@ public class MessageFormattingUtils {
   public static String getNewQuestionToChannelMessage(String fromUserId, ParsedMessage message) {
     StringBuilder payload = new StringBuilder();
     payload.append(String.format("*%s* asked a question ", fromUserId));
+
+    if (message.getUsers().size() > 0) {
+      payload.append("to ");
+      for (String user: message.getUsers()) {
+        payload.append(String.format("<%s> ", user));
+      }
+    }
+
+    payload.append("\n");
     for (String tag: message.getTags()) {
       payload.append(String.format("`%s` ", tag));
     }
