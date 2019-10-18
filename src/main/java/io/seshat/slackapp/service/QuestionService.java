@@ -50,9 +50,13 @@ public class QuestionService {
 
   public boolean processEvent(StarEventExt event) {
     var threadTs = event.getItem().getMessage().getThreadTs();
-    var question = questionRepository.findOneByTs(threadTs);
+    if (threadTs == null) {
+      log.info("This is not a thread message");
+      return true;
+    }
 
-    if (question == null) {
+    var question = questionRepository.findOneByTs(threadTs);
+    if (question.size() == 0) {
       log.info("Thread is not a question");
       return true;
     }
