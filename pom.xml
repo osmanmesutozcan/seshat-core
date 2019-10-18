@@ -15,7 +15,6 @@
   <description>Seshat slack app</description>
 
   <properties>
-    <java.runtime.version>11</java.runtime.version>
     <java.version>11</java.version>
   </properties>
 
