@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController()
 @RequestMapping("/api/v1")
 @RequiredArgsConstructor
-public class PanelV1 {
+public class DashboardV1 {
 
   private final QuestionService questionService;
 

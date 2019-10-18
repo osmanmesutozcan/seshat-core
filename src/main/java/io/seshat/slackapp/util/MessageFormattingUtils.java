@@ -4,6 +4,16 @@ import io.seshat.slackapp.util.MessageParserUtils.ParsedMessage;
 
 public class MessageFormattingUtils {
 
+  /**
+   * Format a message to the following template
+   *
+   * ```
+   * {User} asked a question to {ToUser1, ToUser2, ...}
+   * {Tag1, Tag2, ...}
+   *
+   * > {Question}
+   * ```
+   */
   public static String getNewQuestionToChannelMessage(String fromUserId, ParsedMessage message) {
     StringBuilder payload = new StringBuilder();
     payload.append(String.format("*%s* asked a question ", fromUserId));

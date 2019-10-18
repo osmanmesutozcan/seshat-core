@@ -4,11 +4,9 @@ package io.seshat.slackapp.integration;
 import com.fasterxml.jackson.databind.PropertyNamingStrategy;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
 
-import java.io.Serializable;
 import java.util.List;
 import java.util.Map;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.ToString;
 
