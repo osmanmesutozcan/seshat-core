@@ -38,19 +38,19 @@ public class SlackWebhook {
 
   // Challenge verification for slack events...
 
-//  @PostMapping(path = "/events-ingest")
-//  public String eventsIngest(@RequestBody() Map<String, String> body) {
-//    return body.get("challenge");
-//  }
-
   @PostMapping(path = "/events-ingest")
-  public  ResponseEntity<Object> eventsIngest(@RequestBody() SlackEventPayload<StarEventExt> body) {
-    if (!questionService.processEvent(body.getEvent())) {
-      return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
-    }
-
-    return new ResponseEntity<>(HttpStatus.OK);
+  public String eventsIngest(@RequestBody() Map<String, String> body) {
+    return body.get("challenge");
   }
+
+//  @PostMapping(path = "/events-ingest")
+//  public  ResponseEntity<Object> eventsIngest(@RequestBody() SlackEventPayload<StarEventExt> body) {
+//    if (!questionService.processEvent(body.getEvent())) {
+//      return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+//    }
+//
+//    return new ResponseEntity<>(HttpStatus.OK);
+//  }
 
   @PostMapping(path = "/slash/ask")
   public ResponseEntity<Object> ask(@RequestParam() Map<String, String> params) {
