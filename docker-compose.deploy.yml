@@ -3,12 +3,10 @@ services:
   postgres:
     image: bitnami/postgresql:latest
     restart: always
-#    ports:
-#      - '5432:5432'
+    ports:
+      - '5432:5432'
     environment:
-      POSTGRESQL_USERNAME: seshat
-      POSTGRESQL_PASSWORD: seshat
-      POSTGRESQL_DATABASE: seshat-prod
+      POSTGRESQL_URL: jdbc:postgresql://localhost:5432/seshat-prod
     volumes:
       - seshat_dbdata:/var/lib/postgresql/data
 
