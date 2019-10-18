@@ -1,0 +1,34 @@
+#spring.datasource.url=
+#spring.datasource.username=seshat
+#spring.datasource.password=seshat
+#
+#spring.jpa.hibernate.ddl-auto=update
+#spring.jpa.properties.hibernate.dialect=
+#
+##Fixes some weird error on start
+#spring.jpa.properties.hibernate.jdbc.lob.non_contextual_creation=true
+#
+#seshat.slack.token=
+
+
+spring:
+  datasource:
+    url: ${POSTGRES_URL}
+    username: seshat
+    password: seshat
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        jdbc:
+          lob:
+            non_contextual_creation: true
+
+seshat:
+  slack:
+    token: xoxp-292294537857-294034154087-794050177008-dd44cd18b9e4c39e476ec61a5d8fea08
+
