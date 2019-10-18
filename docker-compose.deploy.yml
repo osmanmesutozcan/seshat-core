@@ -17,7 +17,7 @@ services:
     ports:
       - '8080:8080'
     environment:
-      POSTGRES_URL: 'jdbc:postgresql://postgres:5432/seshat-prod'
+      - POSTGRES_URL=jdbc:postgresql://postgres:5432/seshat-prod
 
 volumes:
   seshat_dbdata:
