@@ -15,9 +15,6 @@ services:
   seshat:
     build:
       context: .
-      args:
-        POSTGRES_URL: ${POSTGRES_URL}
-    command: 'java -jar /usr/local/lib/slackapp.jar'
 
     network_mode: host
     ports:
