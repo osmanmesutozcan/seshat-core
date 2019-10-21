@@ -9,10 +9,8 @@ import io.seshat.slackapp.service.SlackMessengerService.MessagePayload;
 import io.seshat.slackapp.util.MessageFormattingUtils;
 import io.seshat.slackapp.util.MessageParserUtils;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Map;
-import java.util.UUID;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
