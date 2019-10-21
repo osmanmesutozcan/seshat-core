@@ -97,13 +97,13 @@ public class SlackWebhook {
 
     log.info("{} {}", message.getContent(), results);
 
-//    var messageContent = MessageFormattingUtils
-//        .getQuestionSearchResultMessage(results);
-//    var messageResponse = this.slackMessengerService
-//        .sendMessage(new MessagePayload(command.getChannelId(), messageContent));
-//    if (messageResponse == null) {
-//      return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
-//    }
+    var messageContent = MessageFormattingUtils
+        .getQuestionSearchResultMessage(results);
+    var messageResponse = this.slackMessengerService
+        .sendMessage(new MessagePayload(command.getChannelId(), messageContent));
+    if (messageResponse == null) {
+      return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+    }
 
     return new ResponseEntity<>(HttpStatus.OK);
   }
