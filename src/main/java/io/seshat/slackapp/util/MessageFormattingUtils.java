@@ -71,7 +71,7 @@ public class MessageFormattingUtils {
       for (String tag : question.getTags()) {
         payload.append(String.format("`%s` ", tag));
       }
-      payload.append("----------------------------------\n");
+      payload.append("\n----------------------------------\n");
     }
 
     return payload.toString();
