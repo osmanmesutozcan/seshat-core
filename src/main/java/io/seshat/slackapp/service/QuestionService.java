@@ -53,6 +53,10 @@ public class QuestionService {
         .collect(Collectors.groupingBy(o -> o.getQuestion().getChannelId()));
   }
 
+  public List<Question> getSearchResults(List<String> tags, String content) {
+    return questionRepository.searchAllQuestionAnswers();
+  }
+
   public boolean processEvent(StarEventExt event) {
     var threadTs = event.getItem().getMessage().getThreadTs();
     if (threadTs == null) {

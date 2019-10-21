@@ -16,5 +16,15 @@ public interface QuestionRepository extends JpaRepository<Question, String> {
   )
   List<QuestionAnswerDTO> findAllQuestionAnswers();
 
+  @Query(
+      value = "SELECT q.* , a.answer "
+          + "FROM question q "
+          + "INNER JOIN answer a on q.ts = a.question_ts "
+          + "WHERE to_tsvector(q.question) @@ to_tsquery('test:*') "
+          + "ORDER BY ts_rank_cd(to_tsvector(q.question), to_tsquery('test:*')) DESC",
+      nativeQuery = true
+  )
+  List<Question> searchAllQuestionAnswers();
+
   List<Question> findOneByTs(String ts);
 }

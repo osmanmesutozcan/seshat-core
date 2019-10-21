@@ -6,8 +6,6 @@ services:
     ports:
       - '5432:5432'
     environment:
-      POSTGRES_USER: root
-      POSTGRES_PASSWORD: anangot
       POSTGRESQL_USERNAME: seshat
       POSTGRESQL_PASSWORD: seshat
       POSTGRESQL_DATABASE: seshat-prod

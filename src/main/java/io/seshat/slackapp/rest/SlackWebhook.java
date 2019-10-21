@@ -86,4 +86,17 @@ public class SlackWebhook {
 
     return new ResponseEntity<>(HttpStatus.OK);
   }
+
+  @PostMapping(path = "/slash/search")
+  public ResponseEntity<Object> search(@RequestParam() Map<String, String> params) {
+    var command = SlashCommand.fromParams(params);
+    var message = MessageParserUtils.parseSlackMessage(command.getText());
+
+    var results = questionService
+        .getSearchResults(message.getTags(), message.getContent());
+
+    log.info("{}", results);
+
+    return new ResponseEntity<>(HttpStatus.OK);
+  }
 }

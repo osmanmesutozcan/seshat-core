@@ -7,10 +7,12 @@ public class MessageFormattingUtils {
    * Format a message to the following template
    *
    * ```
-   * {User} asked a question to {ToUser1, ToUser2, ...}
+   * {User} saved a question
    * {Tag1, Tag2, ...}
    *
    * > {Question}
+   *
+   * {Answer}
    * ```
    */
   public static String getNewEntryToChannelMessage(String fromUserId, ParsedMessage message, String answer) {
