@@ -26,6 +26,11 @@ public class QuestionService {
   private final QuestionRepository questionRepository;
   private final AnswerRepository answerRepository;
 
+  public void newEntry(String ts, ParsedMessage message, String answer, SlashCommand command) {
+    newQuestion(ts, message, command);
+    saveAnswer(answer, command.getUserId(), ts);
+  }
+
   public Question newQuestion(String ts, ParsedMessage message, SlashCommand command) {
     var callbackId = UUID.randomUUID().toString();
     var question = new Question();
@@ -62,7 +67,11 @@ public class QuestionService {
     }
 
     if (event.getType().equals("star_added")) {
-      return saveAnswer(event) != null;
+      return saveAnswer(
+          event.getItem().getMessage().getText(),
+          event.getUser(),
+          event.getItem().getMessage().getThreadTs()
+      ) != null;
     }
 
     if (event.getType().equals("star_removed")) {
@@ -72,11 +81,11 @@ public class QuestionService {
     return true;
   }
 
-  private Answer saveAnswer(StarEventExt event) {
+  private Answer saveAnswer(String text, String user, String ts) {
     var answer = new Answer();
-    answer.setAnswer(event.getItem().getMessage().getText());
-    answer.setFromUserId(event.getUser());
-    answer.setQuestionTs(event.getItem().getMessage().getThreadTs());
+    answer.setAnswer(text);
+    answer.setFromUserId(user);
+    answer.setQuestionTs(ts);
     return answerRepository.save(answer);
   }
 

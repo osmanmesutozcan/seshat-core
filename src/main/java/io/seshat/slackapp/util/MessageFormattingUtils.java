@@ -3,6 +3,29 @@ package io.seshat.slackapp.util;
 import io.seshat.slackapp.util.MessageParserUtils.ParsedMessage;
 
 public class MessageFormattingUtils {
+  /**
+   * Format a message to the following template
+   *
+   * ```
+   * {User} asked a question to {ToUser1, ToUser2, ...}
+   * {Tag1, Tag2, ...}
+   *
+   * > {Question}
+   * ```
+   */
+  public static String getNewEntryToChannelMessage(String fromUserId, ParsedMessage message, String answer) {
+    StringBuilder payload = new StringBuilder();
+    payload.append(String.format("*%s* saved a question ", fromUserId));
+
+    payload.append("\n");
+    for (String tag: message.getTags()) {
+      payload.append(String.format("`%s` ", tag));
+    }
+
+    payload.append(String.format("\n> %s\n", message.getContent()));
+    payload.append(String.format("\n%s", answer));
+    return payload.toString();
+  }
 
   /**
    * Format a message to the following template
