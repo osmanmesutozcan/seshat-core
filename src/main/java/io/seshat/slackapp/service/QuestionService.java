@@ -54,7 +54,7 @@ public class QuestionService {
   }
 
   public List<Question> getSearchResults(List<String> tags, String content) {
-    return questionRepository.searchAllQuestionAnswers();
+    return questionRepository.searchAllQuestionAnswers(content);
   }
 
   public boolean processEvent(StarEventExt event) {
